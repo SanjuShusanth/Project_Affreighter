@@ -1,8 +1,38 @@
 import streamlit as st
 import requests
 
+# Logistics background and header styling
+st.markdown(
+    '''
+    <style>
+    body {
+        background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+    .main {
+        background: rgba(255,255,255,0.85);
+        border-radius: 10px;
+        padding: 2rem;
+        margin-top: 2rem;
+    }
+    h1 {
+        color: #1a4d8f;
+        font-weight: bold;
+        text-shadow: 1px 1px 2px #fff;
+    }
+    </style>
+    ''', unsafe_allow_html=True
+)
+st.markdown('<div class="main">', unsafe_allow_html=True)
+
 st.set_page_config(page_title="Freight Pricing Demo", layout="centered")
 st.title("🌍 Freight Pricing Calculator")
+st.markdown("""
+#### Welcome to the Freight Pricing Calculator
+Easily estimate your freight costs, chargeable weights, and shipment details for global logistics. Select your ports, shipment terms, and carton details to get instant pricing in INR. This tool supports both air and ocean freight calculations, making it ideal for logistics professionals, exporters, and importers.
+""")
 
 # List of common ports
 ports = [
@@ -65,3 +95,4 @@ if st.button("Calculate in INR"):
         st.caption(chargeable_weight_info)
     except Exception as e:
         st.error("Error fetching exchange rate. Please try again later.")
+st.markdown('</div>', unsafe_allow_html=True)
