@@ -80,7 +80,8 @@ with col3:
         "Select Shipment Terms (Incoterms):",
         incoterms,
         help=incoterm_expenses.get(
-            st.info(incoterm_expenses)
+            st.info(incoterm_expenses
+                    [st.session_state.get("shipment_terms", "EXW")])
         )
     )
 
