@@ -24,6 +24,9 @@ if img_path.exists():
             background-position: center;
             background-color: rgba(0,0,0,0) !important;
         }}
+        label, .stTextInput label, .stNumberInput label, .stSelectbox label {{
+            color: black !important;
+        }}
         </style>
         """,
         unsafe_allow_html=True
