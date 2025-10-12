@@ -82,7 +82,6 @@ with col3:
         key="shipment_terms",
         help=incoterm_expenses.get(
             st.session_state.get("shipment_terms", incoterms[0]),
-            st.config.get_option("theme.primaryColor"),
             "Select an Incoterm to view details."
         )
     )
