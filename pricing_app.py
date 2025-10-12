@@ -26,11 +26,11 @@ if img_path.exists():
         }}
         /* Bright color for field labels */
         label, .stTextInput label, .stNumberInput label, .stSelectbox label {{
-            color: #FFD700 !important; /* Gold/bright yellow */
+            color: #000000 !important; /* Gold/bright yellow */
         }}
         /* Bright color for markdown text */
         .markdown-text-container, .markdown-text-container * {{
-            color: #FFD700 !important;
+            color: #000000 !important;
         }}
         </style>
         """,
