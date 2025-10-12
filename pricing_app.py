@@ -1,19 +1,17 @@
 import streamlit as st
 import requests
 
-# Logistics background and header styling
+# Clean white background and header styling
 st.markdown(
     '''
     <style>
     body {
-        background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80');
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
+        background: #f7f7f7;
     }
     .main {
-        background: rgba(255,255,255,0.85);
+        background: #fff;
         border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.07);
         padding: 2rem;
         margin-top: 2rem;
     }
