@@ -48,6 +48,12 @@ with col8:
 with col9:
     EXW_origin_charges = st.number_input("EXW + Origin Charges (including CFS & LSS) (USD):", min_value=0.0, step=10.0)
 
+# Weight per CBM field (only for Ocean)
+if Shipment_mode == "Ocean":
+    weight_per_cbm = st.number_input("Enter Weight per CBM (kg):", min_value=500, value=1000, step=50)
+else:
+    weight_per_cbm = None
+
 # Separate row for margin
 margin = st.slider("Add Margin (%)", 0, 20, 5)
 
@@ -58,7 +64,6 @@ chargeable_weight = None
 chargeable_weight_info = ""
 
 if Shipment_mode == "Ocean":
-    weight_per_cbm = st.number_input("Enter Weight per CBM (kg):", min_value=500, value=1000, step=50)
     ocean_chargeable_weight = cbm * weight_per_cbm
     if Gross_Weight > ocean_chargeable_weight:
         chargeable_weight = Gross_Weight
