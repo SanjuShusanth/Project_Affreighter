@@ -54,6 +54,7 @@ elif Shipment_mode == "Airline":
 
 usd_amount = st.number_input("Enter Freight Cost (USD):", min_value=0.0, step=10.0)
 margin = st.slider("Add Margin (%)", 0, 20, 5)
+EXW_origin_charges = st.number_input("EXW + Origin Charges (including CFS & LSS) (USD):", min_value=0.0, step=10.0)
 
 if st.button("Calculate in INR"):
     try:
@@ -74,6 +75,7 @@ if st.button("Calculate in INR"):
         st.caption(f"CBM: {cbm:.3f}")
         st.caption(f"Chargeable Weight: {chargeable_weight:.2f} kg")
         st.caption(chargeable_weight_info)
+        st.caption(f"EXW + Origin Charges (including CFS & LSS): ${EXW_origin_charges:,.2f}")
     except Exception as e:
         st.error("Error fetching exchange rate. Please try again later.")
 st.markdown('</div>', unsafe_allow_html=True)
