@@ -89,8 +89,9 @@ if st.button("Calculate in INR"):
             f"https://api.exchangerate-api.com/v4/latest/USD"
         ).json()
         rate = response["rates"]["INR"]
-        final_price = usd_amount * rate * (1 + margin / 100)
-        st.success(f"💰 Final Freight Price: ₹{final_price:,.2f}")
+        total_usd = usd_amount + EXW_origin_charges
+        final_price = total_usd * rate * (1 + margin / 100)
+        st.success(f"💰 Total Cost (Freight + EXW Charges): ₹{final_price:,.2f}")
         st.caption(f"Exchange Rate: 1 USD = ₹{rate}")
         st.caption(f"Port of Loading: {port_of_loading}")
         st.caption(f"Port of Destination: {port_of_destination}")
@@ -111,7 +112,7 @@ if st.button("Calculate in INR"):
             pdf.set_font("Arial", size=12)
             pdf.cell(200, 10, txt="Affreighter Pricing Calculator Result", ln=True, align='C')
             pdf.ln(10)
-            pdf.cell(0, 10, txt=f"Final Freight Price (INR): {final_price:,.2f} INR", ln=True)
+            pdf.cell(0, 10, txt=f"Total Cost (Freight + EXW Charges) (INR): {final_price:,.2f} INR", ln=True)
             pdf.cell(0, 10, txt=f"Exchange Rate: 1 USD = {rate} INR", ln=True)
             pdf.cell(0, 10, txt=f"Port of Loading: {port_of_loading}", ln=True)
             pdf.cell(0, 10, txt=f"Port of Destination: {port_of_destination}", ln=True)
