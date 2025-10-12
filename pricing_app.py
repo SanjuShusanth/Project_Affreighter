@@ -43,7 +43,7 @@ else:
 
 # Page content
 st.markdown('<div class="main-card">', unsafe_allow_html=True)
-st.markdown("<h1 style='text-align: center;'>🌍 Affreighter Logistics Pricing Calculator</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center; color: black; font-weight: bold;'>🌍 Affreighter Logistics Pricing Calculator</h1>", unsafe_allow_html=True)
 st.markdown("""
 <div style='text-align: center; color: black;'>
 <h3 style='color: black;'>Welcome to the Freight Pricing Calculator</h3>
