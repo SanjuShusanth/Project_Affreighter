@@ -17,7 +17,9 @@ if img_path.exists():
         f"""
         <style>
         .stApp {{
-            background-image: url('data:image/jpg;base64,{img_base64}');
+            background-image:
+                linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)),
+                url('data:image/jpg;base64,{img_base64}');
             background-size: cover;
             background-repeat: no-repeat;
             background-attachment: fixed;
