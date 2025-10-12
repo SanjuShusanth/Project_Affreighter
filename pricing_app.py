@@ -76,7 +76,7 @@ with col3:
         "DAP": "DAP (Delivered At Place): Seller pays all costs up to named place of destination, excluding import duties/taxes.",
         "DDP": "DDP (Delivered Duty Paid): Seller pays all costs including import duties/taxes, up to buyer's door. Buyer pays nothing extra."
     }
-    st.markdown("<span style='font-weight: 500;'>Select Shipment Terms (Incoterms): <span style='font-size: 18px; color: #007bff;'>&#9432;</span></span>", unsafe_allow_html=True)
+    st.markdown("<span style=;'color:black;'font-weight: 500;'>Select Shipment Terms (Incoterms): <span style='font-size: 18px; color: #007bff;'>&#9432;</span></span>", unsafe_allow_html=True)
     shipment_terms = st.selectbox("", incoterms)
 
 col4, col5, col6 = st.columns(3)
