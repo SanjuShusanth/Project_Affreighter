@@ -1,35 +1,8 @@
 import streamlit as st
 import requests
 
-# Improved logistics-themed background and overlay
-st.markdown(
-    '''
-    <style>
-    body {
-        background-image: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url('https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=1500&q=80');
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-    }
-    .main-card {
-        background: #fff;
-        border-radius: 16px;
-        box-shadow: 0 4px 24px rgba(0,0,0,0.10);
-        padding: 2.5rem 2rem;
-        margin: 3rem auto;
-        max-width: 700px;
-    }
-    h1 {
-        color: #1a4d8f;
-        font-weight: bold;
-        text-shadow: 1px 1px 2px #fff;
-    }
-    </style>
-    ''', unsafe_allow_html=True
-)
-st.markdown('<div class="main-card">', unsafe_allow_html=True)
-
 st.set_page_config(page_title="Freight Pricing Demo", layout="centered")
+st.markdown('<div class="main-card">', unsafe_allow_html=True)
 st.markdown("<h1 style='text-align: center;'>🌍 Freight Pricing Calculator</h1>", unsafe_allow_html=True)
 st.markdown("""
 <div style='text-align: center;'>
