@@ -53,8 +53,8 @@ elif Shipment_mode == "Airline":
         chargeable_weight_info = "Volumetric chargeable weight is used for billing."
 
 usd_amount = st.number_input("Enter Freight Cost (USD):", min_value=0.0, step=10.0)
-margin = st.slider("Add Margin (%)", 0, 20, 5)
 EXW_origin_charges = st.number_input("EXW + Origin Charges (including CFS & LSS) (USD):", min_value=0.0, step=10.0)
+margin = st.slider("Add Margin (%)", 0, 20, 5)
 
 if st.button("Calculate in INR"):
     try:
