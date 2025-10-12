@@ -69,6 +69,14 @@ with col2:
     port_of_destination = st.selectbox("Select Port of Destination:", ports)
 with col3:
     shipment_terms = st.selectbox("Select Shipment Terms (Incoterms):", incoterms)
+    incoterm_expenses = {
+        "EXW": "EXW (Ex Works): Buyer pays all costs from seller's premises, including freight, insurance, customs, and delivery.",
+        "FOB": "FOB (Free On Board): Seller pays for transport to port and loading. Buyer pays ocean/air freight, insurance, and destination charges.",
+        "CIF": "CIF (Cost, Insurance, Freight): Seller pays for transport, insurance, and freight to destination port. Buyer pays import duties and local delivery.",
+        "DAP": "DAP (Delivered At Place): Seller pays all costs up to named place of destination, excluding import duties/taxes.",
+        "DDP": "DDP (Delivered Duty Paid): Seller pays all costs including import duties/taxes, up to buyer's door. Buyer pays nothing extra."
+    }
+    st.markdown(f"<span style='color:gray; font-size:14px;'>💡 <b>{shipment_terms}</b>: {incoterm_expenses.get(shipment_terms, '')}</span>", unsafe_allow_html=True)
 
 col4, col5, col6 = st.columns(3)
 with col4:
