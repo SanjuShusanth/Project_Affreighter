@@ -80,7 +80,7 @@ with col3:
         "Select Shipment Terms (Incoterms):",
         incoterms,
         help=incoterm_expenses.get(
-            st.session_state.get(incoterms, incoterm_expenses), 
+            st.session_state.get(incoterms, incoterms[0]), 
             "Select an Incoterm to view details."
         )
     )
