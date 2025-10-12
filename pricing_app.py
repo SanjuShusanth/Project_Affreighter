@@ -109,7 +109,7 @@ if st.button("Calculate in INR"):
         try:
             pdf = FPDF()
             pdf.add_page()
-            pdf.set_font("Verdana", size=12)
+            pdf.set_font("verdana", size=12)
             pdf.cell(200, 10, txt="Affreighter Pricing Calculator Result", ln=True, align='C')
             pdf.ln(10)
             pdf.cell(0, 10, txt=f"Total Cost (Freight + EXW Charges) (INR): {final_price:,.2f} INR", ln=True)
