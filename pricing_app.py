@@ -20,13 +20,32 @@ ports = [
     "Shanghai", "Singapore", "Rotterdam", "Dubai", "Los Angeles", "Hamburg", "Mumbai", "Hong Kong", "Antwerp", "Busan", "New York", "Jebel Ali", "Port Klang", "Felixstowe", "Colombo"
 ]
 incoterms = ["EXW", "FOB", "CIF", "DAP", "DDP"]
-port_of_loading = st.selectbox("Select Port of Loading:", ports)
-port_of_destination = st.selectbox("Select Port of Destination:", ports)
-shipment_terms = st.selectbox("Select Shipment Terms (Incoterms):", incoterms)
-Dimensions_of_Cartons = st.text_input("Enter Dimensions of Cartons (LxWxH in cm):", "40x30x20")
-No_of_Cartons = st.number_input("Enter Number of Cartons:", min_value=1, step=1)
-Gross_Weight = st.number_input("Enter Gross Weight(kg):", min_value=0.1, step=0.1)
-Shipment_mode = st.selectbox("Select Shipment Mode:", ["Airline", "Ocean"])
+col1, col2, col3 = st.columns(3)
+with col1:
+    port_of_loading = st.selectbox("Select Port of Loading:", ports)
+with col2:
+    port_of_destination = st.selectbox("Select Port of Destination:", ports)
+with col3:
+    shipment_terms = st.selectbox("Select Shipment Terms (Incoterms):", incoterms)
+
+col4, col5, col6 = st.columns(3)
+with col4:
+    Dimensions_of_Cartons = st.text_input("Enter Dimensions of Cartons (LxWxH in cm):", "40x30x20")
+with col5:
+    No_of_Cartons = st.number_input("Enter Number of Cartons:", min_value=1, step=1)
+with col6:
+    Gross_Weight = st.number_input("Enter Gross Weight(kg):", min_value=0.1, step=0.1)
+
+col7, col8, col9 = st.columns(3)
+with col7:
+    Shipment_mode = st.selectbox("Select Shipment Mode:", ["Airline", "Ocean"])
+with col8:
+    usd_amount = st.number_input("Enter Freight Cost (USD):", min_value=0.0, step=10.0)
+with col9:
+    EXW_origin_charges = st.number_input("EXW + Origin Charges (including CFS & LSS) (USD):", min_value=0.0, step=10.0)
+
+# Separate row for margin
+margin = st.slider("Add Margin (%)", 0, 20, 5)
 
 # Chargeable Weight Calculation
 length, width, height = [float(x) for x in Dimensions_of_Cartons.split('x')]
@@ -51,10 +70,6 @@ elif Shipment_mode == "Airline":
     else:
         chargeable_weight = air_chargeable_weight
         chargeable_weight_info = "Volumetric chargeable weight is used for billing."
-
-usd_amount = st.number_input("Enter Freight Cost (USD):", min_value=0.0, step=10.0)
-EXW_origin_charges = st.number_input("EXW + Origin Charges (including CFS & LSS) (USD):", min_value=0.0, step=10.0)
-margin = st.slider("Add Margin (%)", 0, 20, 5)
 
 if st.button("Calculate in INR"):
     try:
