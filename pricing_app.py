@@ -80,13 +80,14 @@ with col3:
         "Select Shipment Terms (Incoterms):",
         incoterms,
         help=incoterm_expenses.get(
-            st.info(incoterm_expenses
-                    [st.session_state.get("shipment_terms", "EXW")])
+            st.session_state.get(incoterms, incoterm_expenses), 
+            "Select an Incoterm to view details."
         )
     )
 
 # Store the latest selection in session_state to keep help dynamic
-st.session_state["shipment_terms"] = shipment_terms     
+st.session_state["shipment_terms"] = shipment_terms
+      
 
 col4, col5, col6 = st.columns(3)
 with col4:
