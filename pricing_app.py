@@ -3,6 +3,21 @@ import requests
 from fpdf import FPDF
 import io
 
+# Set background image using custom CSS
+st.markdown(
+    f"""
+    <style>
+    .stApp {{
+        background-image: url('image/customs.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }}
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 st.set_page_config(page_title="Affreighter Pricing Demo", layout="wide")
 st.markdown('<div class="main-card">', unsafe_allow_html=True)
 st.markdown("<h1 style='text-align: center;'>🌍 Affreighter Logistics Pricing Calculator</h1>", unsafe_allow_html=True)
