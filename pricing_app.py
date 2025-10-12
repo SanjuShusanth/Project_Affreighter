@@ -8,9 +8,10 @@ st.title("🌍 Freight Pricing Calculator")
 ports = [
     "Shanghai", "Singapore", "Rotterdam", "Dubai", "Los Angeles", "Hamburg", "Mumbai", "Hong Kong", "Antwerp", "Busan", "New York", "Jebel Ali", "Port Klang", "Felixstowe", "Colombo"
 ]
+incoterms = ["EXW", "FOB", "CIF", "DAP", "DDP"]
 port_of_loading = st.selectbox("Select Port of Loading:", ports)
 port_of_destination = st.selectbox("Select Port of Destination:", ports)
-
+shipment_terms = st.selectbox("Select Shipment Terms (Incoterms):", incoterms)
 usd_amount = st.number_input("Enter Freight Cost (USD):", min_value=0.0, step=10.0)
 margin = st.slider("Add Margin (%)", 0, 20, 5)
 
@@ -25,5 +26,6 @@ if st.button("Calculate in INR"):
         st.caption(f"Exchange Rate: 1 USD = ₹{rate}")
         st.caption(f"Port of Loading: {port_of_loading}")
         st.caption(f"Port of Destination: {port_of_destination}")
+        st.caption(f"Shipment Terms: {shipment_terms}")
     except Exception as e:
         st.error("Error fetching exchange rate. Please try again later.")
