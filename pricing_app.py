@@ -2,6 +2,27 @@ import streamlit as st
 import requests
 from fpdf import FPDF
 import io
+import base64
+from pathlib import Path
+
+# Read and encode image as base64
+img_path = Path("image/customs.jpg")
+if img_path.exists():
+    with open(img_path, "rb") as img_file:
+        img_base64 = base64.b64encode(img_file.read()).decode()
+    st.markdown(
+        f"""
+        <style>
+        .stApp {{
+            background-image: url('data:image/jpg;base64,{img_base64}');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }}
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
 
 # Set background image using custom CSS
 st.markdown(
