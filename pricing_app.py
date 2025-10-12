@@ -12,6 +12,7 @@ Easily estimate your freight costs, chargeable weights, and shipment details for
 Select your ports, shipment terms, and carton details to get instant pricing in INR.<br>
 This tool supports both air and ocean freight calculations, making it ideal for logistics professionals, exporters, and importers.
 </p>
+</p>
 </div>
 """, unsafe_allow_html=True)
 
