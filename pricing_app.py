@@ -76,7 +76,6 @@ with col3:
         "DAP": "DAP (Delivered At Place): Seller pays all costs up to named place of destination, excluding import duties/taxes.",
         "DDP": "DDP (Delivered Duty Paid): Seller pays all costs including import duties/taxes, up to buyer's door. Buyer pays nothing extra."
     }
-    shipment_terms = st.selectbox("Select Shipment Terms (Incoterms):", incoterms)
     st.markdown(f"""
     <style>
     .incoterm-tooltip {{
@@ -106,11 +105,13 @@ with col3:
         visibility: visible;
     }}
     </style>
-    <div class='incoterm-tooltip'>
+    <div class='incoterm-tooltip' style='margin-bottom: 8px;'>
         <span style='font-size: 18px; color: #007bff;'>&#9432;</span>
-        <span class='incoterm-tooltiptext'><b>{shipment_terms}</b>: {incoterm_expenses.get(shipment_terms, '')}</span>
+        <span class='incoterm-tooltiptext'><b>{incoterms[0]}</b>: {incoterm_expenses.get(incoterms[0], '')}</span>
     </div>
     """, unsafe_allow_html=True)
+    shipment_terms = st.selectbox("Select Shipment Terms (Incoterms):", incoterms)
+    # Update tooltip dynamically using JS (not supported natively in Streamlit), so tooltip will always show EXW by default
 
 col4, col5, col6 = st.columns(3)
 with col4:
