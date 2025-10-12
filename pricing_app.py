@@ -1,9 +1,9 @@
 import streamlit as st
 import requests
 
-st.set_page_config(page_title="Freight Pricing Demo", layout="centered")
+st.set_page_config(page_title="Affreighter Pricing Demo", layout="centered")
 st.markdown('<div class="main-card">', unsafe_allow_html=True)
-st.markdown("<h1 style='text-align: center;'>🌍 Freight Pricing Calculator</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center;'>🌍 Affreighter Pricing Calculator</h1>", unsafe_allow_html=True)
 st.markdown("""
 <div style='text-align: center;'>
 <h3>Welcome to the Freight Pricing Calculator</h3>
