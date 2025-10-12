@@ -106,7 +106,7 @@ with col3:
         visibility: visible;
     }}
     </style>
-    <span style='font-weight: 500;'>Select Shipment Terms (Incoterms):</span>
+        <span style='font-size: 16px; font-weight: 400; color: #000;'>Select Shipment Terms (Incoterms):</span>
     <span class='incoterm-tooltip'>
         <span style='font-size: 18px; color: #007bff;'>&#9432;</span>
         <span class='incoterm-tooltiptext'><b>{incoterms[0]}</b>: {incoterm_expenses.get(incoterms[0], '')}</span>
