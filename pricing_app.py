@@ -1,7 +1,7 @@
 import streamlit as st
 import requests
 
-st.set_page_config(page_title="Affreighter Pricing Demo", layout="centered")
+st.set_page_config(page_title="Affreighter Pricing Demo", layout="wide")
 st.markdown('<div class="main-card">', unsafe_allow_html=True)
 st.markdown("<h1 style='text-align: center;'>🌍 Affreighter Pricing Calculator</h1>", unsafe_allow_html=True)
 st.markdown("""
