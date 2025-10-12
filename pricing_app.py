@@ -6,6 +6,9 @@ import base64
 from pathlib import Path
 
 # Read and encode image as base64
+
+st.set_page_config(page_title="Affreighter Pricing Demo", layout="wide")
+
 img_path = Path("image/customs.jpg")
 if img_path.exists():
     with open(img_path, "rb") as img_file:
@@ -13,33 +16,34 @@ if img_path.exists():
     st.markdown(
         f"""
         <style>
-        .stApp {{
-            background-image: url('data:image/jpg;base64,{img_base64}');
+        [data-testid="stAppViewContainer"] > .main {{
+            background-image: url("data:image/jpg;base64,{img_base64}");
             background-size: cover;
             background-repeat: no-repeat;
             background-attachment: fixed;
+            background-position: center;
         }}
         </style>
         """,
         unsafe_allow_html=True
     )
+else:
+    st.error("Background image not found. Please check the 'image/customs.jpg' path.")
 
-# Set background image using custom CSS
-st.markdown(
-    f"""
-    <style>
-    .stApp {{
-        background-image: url('image/customs.jpg');
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-    }}
-    </style>
-    """,
-    unsafe_allow_html=True
-)
+# Page content
+st.markdown('<div class="main-card">', unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center;'>🌍 Affreighter Logistics Pricing Calculator</h1>", unsafe_allow_html=True)
+st.markdown("""
+<div style='text-align: center;'>
+<h3>Welcome to the Freight Pricing Calculator</h3>
+<p style='max-width: 600px; margin: auto;'>
+Easily estimate your freight costs, chargeable weights, and shipment details for global logistics.<br>
+Select your ports, shipment terms, and carton details to get instant pricing in INR.<br>
+This tool supports both air and ocean freight calculations, making it ideal for logistics professionals, exporters, and importers.
+</p>
+</div>
+""", unsafe_allow_html=True)
 
-st.set_page_config(page_title="Affreighter Pricing Demo", layout="wide")
 st.markdown('<div class="main-card">', unsafe_allow_html=True)
 st.markdown("<h1 style='text-align: center;'>🌍 Affreighter Logistics Pricing Calculator</h1>", unsafe_allow_html=True)
 st.markdown("""
