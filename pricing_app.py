@@ -16,12 +16,13 @@ if img_path.exists():
     st.markdown(
         f"""
         <style>
-        [data-testid="stAppViewContainer"] > .main {{
-            background-image: url("data:image/jpg;base64,{img_base64}");
+        .stApp {{
+            background-image: url('data:image/jpg;base64,{img_base64}');
             background-size: cover;
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-position: center;
+            background-color: rgba(0,0,0,0) !important;
         }}
         </style>
         """,
