@@ -44,21 +44,6 @@ This tool supports both air and ocean freight calculations, making it ideal for 
 </div>
 """, unsafe_allow_html=True)
 
-st.markdown('<div class="main-card">', unsafe_allow_html=True)
-st.markdown("<h1 style='text-align: center;'>🌍 Affreighter Logistics Pricing Calculator</h1>", unsafe_allow_html=True)
-st.markdown("""
-<div style='text-align: center;'>
-<h3>Welcome to the Freight Pricing Calculator</h3>
-<p style='max-width: 600px; margin: auto;'>
-Easily estimate your freight costs, chargeable weights, and shipment details for global logistics.<br>
-Select your ports, shipment terms, and carton details to get instant pricing in INR.<br>
-This tool supports both air and ocean freight calculations, making it ideal for logistics professionals, exporters, and importers.
-</p>
-</p>
-</p>
-</div>
-""", unsafe_allow_html=True)
-
 
 
     # List of common ports
