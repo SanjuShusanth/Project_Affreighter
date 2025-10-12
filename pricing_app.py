@@ -1,5 +1,7 @@
 import streamlit as st
 import requests
+from fpdf import FPDF
+import io
 
 st.set_page_config(page_title="Affreighter Pricing Demo", layout="wide")
 st.markdown('<div class="main-card">', unsafe_allow_html=True)
@@ -100,6 +102,33 @@ if st.button("Calculate in INR"):
         st.caption(f"Chargeable Weight: {chargeable_weight:.2f} kg")
         st.caption(chargeable_weight_info)
         st.caption(f"EXW + Origin Charges (including CFS & LSS): ${EXW_origin_charges:,.2f}")
+
+        # PDF generation
+        pdf = FPDF()
+        pdf.add_page()
+        pdf.set_font("Arial", size=12)
+        pdf.cell(200, 10, txt="Affreighter Pricing Calculator Result", ln=True, align='C')
+        pdf.ln(10)
+        pdf.cell(0, 10, txt=f"Final Freight Price (INR): ₹{final_price:,.2f}", ln=True)
+        pdf.cell(0, 10, txt=f"Exchange Rate: 1 USD = ₹{rate}", ln=True)
+        pdf.cell(0, 10, txt=f"Port of Loading: {port_of_loading}", ln=True)
+        pdf.cell(0, 10, txt=f"Port of Destination: {port_of_destination}", ln=True)
+        pdf.cell(0, 10, txt=f"Shipment Terms: {shipment_terms}", ln=True)
+        pdf.cell(0, 10, txt=f"Number of Cartons: {No_of_Cartons}", ln=True)
+        pdf.cell(0, 10, txt=f"Dimensions of Cartons: {Dimensions_of_Cartons} cm", ln=True)
+        pdf.cell(0, 10, txt=f"Gross Weight: {Gross_Weight} kg", ln=True)
+        pdf.cell(0, 10, txt=f"Shipment Mode: {Shipment_mode}", ln=True)
+        pdf.cell(0, 10, txt=f"CBM: {cbm:.3f}", ln=True)
+        pdf.cell(0, 10, txt=f"Chargeable Weight: {chargeable_weight:.2f} kg", ln=True)
+        pdf.cell(0, 10, txt=f"{chargeable_weight_info}", ln=True)
+        pdf.cell(0, 10, txt=f"EXW + Origin Charges (including CFS & LSS): ${EXW_origin_charges:,.2f}", ln=True)
+        pdf_output = io.BytesIO(pdf.output(dest='S').encode('latin1'))
+        st.download_button(
+            label="Download PDF",
+            data=pdf_output,
+            file_name="freight_pricing_result.pdf",
+            mime="application/pdf"
+        )
     except Exception as e:
         st.error("Error fetching exchange rate. Please try again later.")
 st.markdown('</div>', unsafe_allow_html=True)
