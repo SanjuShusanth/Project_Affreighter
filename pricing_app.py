@@ -77,11 +77,16 @@ with col3:
         "DDP": "DDP (Delivered Duty Paid): Seller pays all costs including import duties/taxes, up to buyer's door. Buyer pays nothing extra."
     }
     shipment_terms = st.selectbox(
-        "Select Shipment Terms (Incoterms):", 
-        incoterms, 
-        help="Choose an Incoterm to see detailed explanation below."
+        "Select Shipment Terms (Incoterms):",
+        incoterms,
+        help=incoterm_expenses.get(
+            st.session_state.get("shipment_terms", "EXW"), 
+            "Select an Incoterm to view details."
+        )
     )
-    st.info(incoterm_expenses[shipment_terms])       
+
+# Store the latest selection in session_state to keep help dynamic
+st.session_state["shipment_terms"] = shipment_terms       
 
 col4, col5, col6 = st.columns(3)
 with col4:
