@@ -13,6 +13,7 @@ Select your ports, shipment terms, and carton details to get instant pricing in 
 This tool supports both air and ocean freight calculations, making it ideal for logistics professionals, exporters, and importers.
 </p>
 </p>
+</p>
 </div>
 """, unsafe_allow_html=True)
 
