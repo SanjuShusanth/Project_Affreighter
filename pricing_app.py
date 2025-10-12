@@ -26,11 +26,6 @@ if img_path.exists():
         }}
         label, .stTextInput label, .stNumberInput label, .stSelectbox label {
             color: black !important;
-            font-weight: bold !important;
-        }
-        .markdown-text-container, .markdown-text-container * {
-            color: black !important;
-            font-weight: bold !important;
         }
         </style>
         """,
