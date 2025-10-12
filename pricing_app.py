@@ -79,14 +79,15 @@ with col3:
     shipment_terms = st.selectbox(
         "Select Shipment Terms (Incoterms):",
         incoterms,
+        key="shipment_terms",
         help=incoterm_expenses.get(
-            st.session_state.get(incoterms, incoterms[0]), 
+            st.session_state.get("shipment_terms", incoterms[0]),
             "Select an Incoterm to view details."
         )
     )
 
 # Store the latest selection in session_state to keep help dynamic
-st.session_state["shipment_terms"] = shipment_terms
+st.info(incoterm_expenses[st.session_state["shipment_terms"]])
       
 
 col4, col5, col6 = st.columns(3)
