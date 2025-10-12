@@ -86,8 +86,6 @@ with col3:
         )
     )
 
-# Store the latest selection in session_state to keep help dynamic
-st.info(incoterm_expenses[st.session_state["shipment_terms"]])
       
 
 col4, col5, col6 = st.columns(3)
