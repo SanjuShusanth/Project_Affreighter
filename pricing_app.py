@@ -68,7 +68,8 @@ with col1:
 with col2:
     port_of_destination = st.selectbox("Select Port of Destination:", ports)
 with col3:
-    shipment_terms = st.selectbox("Select Shipment Terms (Incoterms):", incoterms)
+    incoterms_label = "Select Shipment Terms (Incoterms):"
+    shipment_terms = st.selectbox(incoterms_label, incoterms)
     incoterm_expenses = {
         "EXW": "EXW (Ex Works): Buyer pays all costs from seller's premises, including freight, insurance, customs, and delivery.",
         "FOB": "FOB (Free On Board): Seller pays for transport to port and loading. Buyer pays ocean/air freight, insurance, and destination charges.",
@@ -76,7 +77,44 @@ with col3:
         "DAP": "DAP (Delivered At Place): Seller pays all costs up to named place of destination, excluding import duties/taxes.",
         "DDP": "DDP (Delivered Duty Paid): Seller pays all costs including import duties/taxes, up to buyer's door. Buyer pays nothing extra."
     }
-    st.markdown(f"<span style='color:gray; font-size:14px;'>💡 <b>{shipment_terms}</b>: {incoterm_expenses.get(shipment_terms, '')}</span>", unsafe_allow_html=True)
+    # Add info icon with tooltip using HTML/CSS
+    st.markdown(f"""
+    <style>
+    .incoterm-tooltip {{
+        position: relative;
+        display: inline-block;
+        margin-left: 8px;
+        cursor: pointer;
+    }}
+    .incoterm-tooltip .incoterm-tooltiptext {{
+        visibility: hidden;
+        width: 320px;
+        background-color: #f9f9f9;
+        color: #333;
+        text-align: left;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        padding: 10px;
+        position: absolute;
+        z-index: 1;
+        top: 120%;
+        left: 50%;
+        transform: translateX(-50%);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        font-size: 14px;
+    }}
+    .incoterm-tooltip:hover .incoterm-tooltiptext {{
+        visibility: visible;
+    }}
+    </style>
+    <div style='display: flex; align-items: center;'>
+        <span style='font-weight: bold; color: #000;'>Shipment Terms</span>
+        <div class='incoterm-tooltip'>
+            <span style='font-size: 18px; color: #007bff;'>&#9432;</span>
+            <span class='incoterm-tooltiptext'><b>{shipment_terms}</b>: {incoterm_expenses.get(shipment_terms, '')}</span>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
 
 col4, col5, col6 = st.columns(3)
 with col4:
