@@ -1,20 +1,20 @@
 import streamlit as st
 import requests
 
-# Logistics-themed background image and overlay for readability
+# Improved logistics-themed background and overlay
 st.markdown(
     '''
     <style>
     body {
-        background-image: url('https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=1500&q=80');
+        background-image: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url('https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=1500&q=80');
         background-size: cover;
         background-repeat: no-repeat;
         background-attachment: fixed;
     }
     .main-card {
-        background: rgba(255,255,255,0.90);
-        border-radius: 12px;
-        box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.10);
         padding: 2.5rem 2rem;
         margin: 3rem auto;
         max-width: 700px;
