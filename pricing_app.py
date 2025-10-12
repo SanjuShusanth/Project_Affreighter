@@ -76,43 +76,8 @@ with col3:
         "DAP": "DAP (Delivered At Place): Seller pays all costs up to named place of destination, excluding import duties/taxes.",
         "DDP": "DDP (Delivered Duty Paid): Seller pays all costs including import duties/taxes, up to buyer's door. Buyer pays nothing extra."
     }
-    st.markdown(f"""
-    <style>
-    .incoterm-tooltip {{
-        position: relative;
-        display: inline-block;
-        cursor: pointer;
-        margin-left: 4px;
-        vertical-align: middle;
-    }}
-    .incoterm-tooltip .incoterm-tooltiptext {{
-        visibility: hidden;
-        width: 320px;
-        background-color: #f9f9f9;
-        color: #333;
-        text-align: left;
-        border-radius: 6px;
-        border: 1px solid #ccc;
-        padding: 10px;
-        position: absolute;
-        z-index: 1;
-        top: 120%;
-        left: 50%;
-        transform: translateX(-50%);
-        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-        font-size: 14px;
-    }}
-    .incoterm-tooltip:hover .incoterm-tooltiptext {{
-        visibility: visible;
-    }}
-    </style>
-        <span style='font-size: 16px; font-weight: 400; color: #000;'>Select Shipment Terms (Incoterms):</span>
-    <span class='incoterm-tooltip'>
-        <span style='font-size: 18px; color: #007bff;'>&#9432;</span>
-        <span class='incoterm-tooltiptext'><b>{incoterms[0]}</b>: {incoterm_expenses.get(incoterms[0], '')}</span>
-    </span>
-    """, unsafe_allow_html=True)
-    shipment_terms = st.selectbox("", incoterms)
+    shipment_terms = st.selectbox("Select Shipment Terms (Incoterms):", incoterms, help="Select the Incoterm that defines the responsibilities of buyer and seller for the delivery of goods.")
+    st.markdown(f"<span style='color:black;'>{incoterm_expenses[shipment_terms]}</span>", unsafe_allow_html=True)       
 
 col4, col5, col6 = st.columns(3)
 with col4:
