@@ -68,8 +68,7 @@ with col1:
 with col2:
     port_of_destination = st.selectbox("Select Port of Destination:", ports)
 with col3:
-    incoterms_label = "Select Shipment Terms (Incoterms):"
-    shipment_terms = st.selectbox(incoterms_label, incoterms)
+    # Only the info icon above the select field
     incoterm_expenses = {
         "EXW": "EXW (Ex Works): Buyer pays all costs from seller's premises, including freight, insurance, customs, and delivery.",
         "FOB": "FOB (Free On Board): Seller pays for transport to port and loading. Buyer pays ocean/air freight, insurance, and destination charges.",
@@ -77,14 +76,13 @@ with col3:
         "DAP": "DAP (Delivered At Place): Seller pays all costs up to named place of destination, excluding import duties/taxes.",
         "DDP": "DDP (Delivered Duty Paid): Seller pays all costs including import duties/taxes, up to buyer's door. Buyer pays nothing extra."
     }
-    # Add info icon with tooltip using HTML/CSS
     st.markdown(f"""
     <style>
     .incoterm-tooltip {{
         position: relative;
         display: inline-block;
-        margin-left: 8px;
         cursor: pointer;
+        margin-bottom: 2px;
     }}
     .incoterm-tooltip .incoterm-tooltiptext {{
         visibility: hidden;
@@ -107,14 +105,12 @@ with col3:
         visibility: visible;
     }}
     </style>
-    <div style='display: flex; align-items: center;'>
-        <span style='font-weight: bold; color: #000;'>Shipment Terms</span>
-        <div class='incoterm-tooltip'>
-            <span style='font-size: 18px; color: #007bff;'>&#9432;</span>
-            <span class='incoterm-tooltiptext'><b>{shipment_terms}</b>: {incoterm_expenses.get(shipment_terms, '')}</span>
-        </div>
+    <div class='incoterm-tooltip'>
+        <span style='font-size: 18px; color: #007bff;'>&#9432;</span>
+        <span class='incoterm-tooltiptext'><b>{shipment_terms}</b>: {incoterm_expenses.get(shipment_terms, '')}</span>
     </div>
     """, unsafe_allow_html=True)
+    shipment_terms = st.selectbox("Select Shipment Terms (Incoterms):", incoterms)
 
 col4, col5, col6 = st.columns(3)
 with col4:
