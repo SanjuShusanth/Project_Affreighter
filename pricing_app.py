@@ -127,19 +127,19 @@ if st.button("Calculate in INR"):
         rate = response["rates"]["INR"]
         total_usd = usd_amount + EXW_origin_charges
         final_price = total_usd * rate * (1 + margin / 100)
-        st.success(f"💰 Total Cost (Freight + EXW Charges): ₹{final_price:,.2f}")
-        st.caption(f"Exchange Rate: 1 USD = ₹{rate}")
-        st.caption(f"Port of Loading: {port_of_loading}")
-        st.caption(f"Port of Destination: {port_of_destination}")
-        st.caption(f"Shipment Terms: {shipment_terms}")
-        st.caption(f"Number of Cartons: {No_of_Cartons}")
-        st.caption(f"Dimensions of Cartons: {Dimensions_of_Cartons} cm")
-        st.caption(f"Gross Weight: {Gross_Weight} kg")
-        st.caption(f"Shipment Mode: {Shipment_mode}")
-        st.caption(f"CBM: {cbm:.3f}")
-        st.caption(f"Chargeable Weight: {chargeable_weight:.2f} kg")
-        st.caption(chargeable_weight_info)
-        st.caption(f"EXW + Origin Charges (including CFS & LSS): ${EXW_origin_charges:,.2f}")
+        st.markdown(f"<span style='color:black; font-weight:bold;'>💰 Total Cost (Freight + EXW Charges): ₹{final_price:,.2f}</span>", unsafe_allow_html=True)
+        st.markdown(f"<span style='color:black;'>Exchange Rate: 1 USD = ₹{rate}</span>", unsafe_allow_html=True)
+        st.markdown(f"<span style='color:black;'>Port of Loading: {port_of_loading}</span>", unsafe_allow_html=True)
+        st.markdown(f"<span style='color:black;'>Port of Destination: {port_of_destination}</span>", unsafe_allow_html=True)
+        st.markdown(f"<span style='color:black;'>Shipment Terms: {shipment_terms}</span>", unsafe_allow_html=True)
+        st.markdown(f"<span style='color:black;'>Number of Cartons: {No_of_Cartons}</span>", unsafe_allow_html=True)
+        st.markdown(f"<span style='color:black;'>Dimensions of Cartons: {Dimensions_of_Cartons} cm</span>", unsafe_allow_html=True)
+        st.markdown(f"<span style='color:black;'>Gross Weight: {Gross_Weight} kg</span>", unsafe_allow_html=True)
+        st.markdown(f"<span style='color:black;'>Shipment Mode: {Shipment_mode}</span>", unsafe_allow_html=True)
+        st.markdown(f"<span style='color:black;'>CBM: {cbm:.3f}</span>", unsafe_allow_html=True)
+        st.markdown(f"<span style='color:black;'>Chargeable Weight: {chargeable_weight:.2f} kg</span>", unsafe_allow_html=True)
+        st.markdown(f"<span style='color:black;'>{chargeable_weight_info}</span>", unsafe_allow_html=True)
+        st.markdown(f"<span style='color:black;'>EXW + Origin Charges (including CFS & LSS): ${EXW_origin_charges:,.2f}</span>", unsafe_allow_html=True)
 
         # PDF generation
         try:
