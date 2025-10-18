@@ -94,7 +94,7 @@ with col4:
 with col5:
     No_of_Cartons = st.number_input("Enter Number of Cartons:", min_value=1, step=1)
 with col6:
-    Gross_Weight = st.number_input("Enter Gross Weight(kg):", min_value=0.1, step=0.1)
+    Gross_Weight = st.number_input("Enter Gross Weight(kg):", min_value=1, step=1)
 
 col7, col8, col9 = st.columns(3)
 with col7:
